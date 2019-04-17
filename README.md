@@ -2,7 +2,7 @@
 
 Hello Beautiful!
 
-This app will let you see in real time all the great deals going on at Ulta Beauty. Head over to the bin and check it out, because you deserve to look beautiful! 
+This app will let you see in real time the sales of the day going on at Ulta Beauty.  
 
 ## Installation
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the screen prompts
+
+    $ makeup-sales
 
 ## Development
 
