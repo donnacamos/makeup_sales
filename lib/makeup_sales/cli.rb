@@ -15,7 +15,7 @@ class MakeupSales::CLI
     end   
   
   def menu 
-    puts "Enter the number of the product you'd like more info on or type exit:"
+    puts "Enter the number of the product you'd like more info on or type list or type exit:"
     while input != "exit" 
     input = gets.strip 
     case input 
@@ -23,6 +23,10 @@ class MakeupSales::CLI
     puts "More info on product 1..." 
     when "2" 
     puts "More info on product 2..." 
+    when "list"
+    puts list_products 
+  else
+    puts "Not sure what you want: type list or exit."
   end 
 end 
 
