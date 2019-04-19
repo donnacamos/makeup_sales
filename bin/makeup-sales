@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "./lib/makeup" 
+
+require "./lib/makeup-sales" 
 
 MakeupSales::CLI.new.call 
 

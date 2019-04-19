@@ -12,7 +12,9 @@ class MakeupSales::CLI
     puts 
     1. NO7 - Line Correcting Booster Serum - Sale Price $29.39 - Original Price $41.99
     2. RAPIDLASH - Eyelash Enhancing Serum - Sale Price $34.99 - Original Price $49.99
-    end   
+    end 
+    
+    @sales = MakeupSales::Sale.today 
   
   def menu 
     puts "Enter the number of the product you'd like more info on or type list or type exit:"
