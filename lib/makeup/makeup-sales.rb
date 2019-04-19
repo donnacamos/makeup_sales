@@ -1,3 +1,4 @@
 require_relative "./makeup/sales/version" 
-require_relative "./makeup_sales/cli" 
+require-relative "./makeup/sale"
+require_relative "./makeup/cli" 
 

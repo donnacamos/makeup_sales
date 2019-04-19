@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 
-require "./lib/makeup-sales" 
+require "makeup_sales"  
 
 MakeupSales::CLI.new.call 
 
