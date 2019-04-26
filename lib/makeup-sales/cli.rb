@@ -1,17 +1,17 @@
 class MakeupSales::CLI
 
   def call
-    list_products 
-    menu
-    goodbye
+    MakeupSales::Scraper  
+    puts "Hello Beautiful! Welcome to the Makeup Sales of Ulta Beauty:"
+    start 
   end
 
-  def list_products 
-    puts "Ulta Beauty's Sales Today:" 
-    @sales = Makesales::Sale.today
-    @sales.each.with_index(1) do |product, i|
-      puts "#{i}. #{product.name} - #{product.price} - #{product.availability}"
-    end
+  def start 
+    puts ""
+    puts "Which Ulta Beauty Sales product page would you like to see? 1, 2, 3, 4, 5, 6, 7?" 
+    input = gets.strip.to_i 
+    
+    print_products(input) 
   end
 
   def menu
