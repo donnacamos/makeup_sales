@@ -1,8 +1,4 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
+module MakeupSales 
+end 
 
-
-require_relative "./makeup/sales/version" 
-require-relative "./makeup/sale"
-require_relative "./makeup/cli" 
+require_relative '../config/environment'
