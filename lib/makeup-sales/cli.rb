@@ -12,26 +12,43 @@ class MakeupSales::CLI
     input = gets.strip.to_i 
     
     print_products(input) 
-  end
-
-  def menu
-    input = nil
-    while input != "exit"
-      puts "Enter the number of the product you'd like more info on or type list to see the products again or type exit:"
-      input = gets.strip.downcase
-
-      if input.to_i > 0
-        the_product = @sale[input.to_i-1]
-        puts "#{the_product.name} - #{the_product.price} - #{the_product.availability}"
-      elsif input == "list"
-        list_product
-      else
-        puts "Not sure what you want, type list or exit."
-      end
+    
+    puts "" 
+    puts "What product would you like more info on?" 
+    input = gets.strip 
+    
+    product = MakeupSales::Product.find(input.to_i)
+    
+    print_product(product) 
+    
+    puts "" 
+    puts "Would you like to see another product? Enter Yes or No"
+    
+    input = gets.strip.downcase 
+    if input == "y" 
+      start 
+    elsif input == "n" 
+      puts "" 
+      puts "Thank you! Come back tomorrow for more beauty sales!" 
+      exit 
+    else 
+      puts "" 
+      puts "I don't understand that answer."
+      start 
     end
-  end
+  end 
 
-  def goodbye
-    puts "See you tomorrow for more great products from Ulta Beauty!" 
+  def print_products(product) 
+     puts ""
+    puts "----------- #{product.name} - #{product.page_number} -----------"
+    puts ""
+    puts "Brand:               #{product.brand}"
+    puts "Sale Price:          #{product.sale_price}"
+    puts "Previous Price:      #{product.previous_price}"
+    puts "Buy Now:             #{product.buy_now}"
+    puts ""
+    puts "---------------Description--------------"
+    puts ""
+    puts "#{product.description}"
+    puts ""
   end
-end
