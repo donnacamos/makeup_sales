@@ -38,7 +38,7 @@ class MakeupSales::CLI
     end
   end 
 
-  def print_products(product) 
+  def print_product(product) 
      puts ""
     puts "----------- #{product.name} - #{product.page_number} -----------"
     puts ""
@@ -52,3 +52,13 @@ class MakeupSales::CLI
     puts "#{product.description}"
     puts ""
   end
+ 
+ def print_products(from_number) 
+   puts "" 
+   puts "----------Products #{from_number} - #{from_number+7}--------------"
+   puts "" 
+   MakeupSales::Product.all[from_number-1, 7].each.with_index(from_number) do |product, index| 
+     puts "#{index}. #{product.name} - #{product.brand}" 
+     end 
+  end 
+end 
