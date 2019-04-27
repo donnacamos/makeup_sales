@@ -29,26 +29,21 @@ class MakeupSales::Product
   end
 
   def brand 
-    @brand ||= doc.css().text
+    @brand ||= doc.css("h4.prod-title").text
    
-  end
+  end""
 
   def sale_price
-    @sale_price ||= doc.css().text
+    @sale_price ||= doc.css("span.pro-new-price").text
   end
 
   def previous_price
-    @previous_price ||= doc.css().text
-    
-  end
-
-  def url
-    @url ||= doc.css().text
+    @previous_price ||= doc.css("span.pro-old-price").text
     
   end
 
   def description
-    @description ||= doc.css().text
+    @description ||= doc.css("p.prod-description").text
     
   end
 
