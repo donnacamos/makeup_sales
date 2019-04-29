@@ -1,9 +1,8 @@
-require 'open-uri'
+
 require 'nokogiri'
-require 'pry'
+require 'open-uri'
 
-
-require_relative '../lib/makeup-sales/version' 
-require-relative '../lib/makeup-sales/cli'
 require_relative '../lib/makeup-sales/scraper'
 require_relative '../lib/makeup-sales/product'
+require_relative '../lib/makeup-sales/cli'
+require_relative '../lib/makeup-sales/version'

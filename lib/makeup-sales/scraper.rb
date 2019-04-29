@@ -9,8 +9,8 @@ class MakeupSales::Scraper
   end 
   
   def scrape_products 
-    scrape_products_index.each do |p| 
-      MakeupSales::Product.new_from_index_page(p) 
+    scrape_products_index.each do |r| 
+      MakeupSales::Product.new_from_index_page(r) 
     end 
   end 
 end 

@@ -31,7 +31,7 @@ class MakeupSales::Product
   def brand 
     @brand ||= doc.css("h4.prod-title").text
    
-  end""
+  end
 
   def sale_price
     @sale_price ||= doc.css("span.pro-new-price").text
