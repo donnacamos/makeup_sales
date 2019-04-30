@@ -4,12 +4,12 @@ class MakeupSales::Product
   
   @@all = [] 
   
-    def self.new_from_index_page(p)
+    def self.new_from_index_page(r)
     self.new(
-      p.css("h2").text,
-      "https://www.ulta.com/promotion/sale#{p.css("a").attribute("href").text}",
-      p.css("h3").text,
-      p.css(".position").text
+      r.css("h2").text,
+      "https://www.ulta.com/promotion/sale#{r.css("a").attribute("href").text}",
+      r.css("h3").text,
+      r.css(".position").text
       )
   end
 
