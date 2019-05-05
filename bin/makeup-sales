@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require bundle/install
+
 require_relative '../lib/makeup-sales'  
 
 MakeupSales::CLI.new.call 
