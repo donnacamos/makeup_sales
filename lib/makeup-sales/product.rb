@@ -1,7 +1,19 @@
 class MakeupSales::Product
   
-  attr_accessor :name, :page_number, :brand, :url, :sale_price, :previous_price, :description  
+  @@all = [] 
   
+  attr_accessor :name, :url, :page_number, :brand, :sale_price, :previous_price, :description  
+  
+  def initialize(name, url)  
+    @name = name 
+    @url = url  
+    
+    @@all << self 
+  end 
+  
+  def self.all 
+    @@all 
+  end 
   
   
    

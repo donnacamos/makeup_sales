@@ -15,62 +15,57 @@ class MakeupSales::CLI
   
   def menu
     puts "1 - 7 or press q to quit" 
-    page_number = gets.strip.to_i
-    case page_number 
-    when 1
-      page_1
-    when 2
-      page_2
-    when 3
-      page_3
-    when 4
-      page_4
-    when 5
-      page_5
-    when 6
-      page_6
-    when 7
-      page_7
-    when "q"  
-      good_bye 
+    user_input = gets.strip.to_i 
+    case user_input 
+    when 1..7
+     list_product  
+    when 'q' 
+     good_bye  
     else
       puts "Invalid Choice"
       menu
     end
   end
-
-  def page_1 
-    puts "You chose 1"
-  end  
-
-  def page_2 
-    puts "You chose 2"
-  end  
-
-  def page_3 
-    puts "You chose 3"
+  
+  def list_product  
+    puts "product 1" 
+    puts "product 2"
+    puts "product 3" 
+    puts "product 4"
+    puts "product 5" 
+    puts "product 6"
+    puts "product 7" 
+    puts "product 8"
+    puts "" 
+    puts "Which product would you like more details on (1-8)?" 
+    select_product 
   end 
   
-  def page_4 
-    puts "You chose 4"
-  end  
-
-  def page_5 
-    puts "You chose 5"
-  end  
-
-  def page_6
-    puts "You chose 6"
-  end
+  def select_product
+    selection = gets.strip.to_i 
+    case selection
+    when 1..8
+    product_details
+    when 'q' 
+      good_bye 
+    else 
+      puts "invalid entry" 
+      main 
+    end 
+  end 
   
-  def page_7
-    puts "You chose 7"
+  def product_details  
+    puts "product name" 
+    puts "product brand" 
+    puts "original price" 
+    puts "sale price" 
+    puts "product description" 
+    
   end 
   
   def good_bye 
     puts "Thank you for shopping with us! See you soon!" 
   end 
-  
 end  
  
  
