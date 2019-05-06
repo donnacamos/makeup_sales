@@ -31,8 +31,8 @@ class MakeupSales::CLI
       page_6
     when 7
       page_7
-    when "q" 
-      puts "Thank you for shopping with us! See you soon!" 
+    when "q"  
+      good_bye 
     else
       puts "Invalid Choice"
       menu
@@ -66,8 +66,12 @@ class MakeupSales::CLI
   def page_7
     puts "You chose 7"
   end 
- end 
- 
+  
+  def good_bye 
+    puts "Thank you for shopping with us! See you soon!" 
+  end 
+  
+end  
  
  
   
