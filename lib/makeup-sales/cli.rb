@@ -60,7 +60,18 @@ class MakeupSales::CLI
     puts "original price" 
     puts "sale price" 
     puts "product description" 
-    
+    next_product 
+  end 
+  
+  def next_product 
+    puts "Would you like to see another product? Y or N?" 
+    if 'y' 
+      puts menu 
+    if 'n'   
+      puts good_bye 
+    else 
+      puts "Invalid Entry."
+    end 
   end 
   
   def good_bye 
@@ -68,6 +79,4 @@ class MakeupSales::CLI
   end 
 end  
  
- 
-  
-  
+end   
