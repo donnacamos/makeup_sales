@@ -1,19 +1,15 @@
 class MakeupSales::CLI
 
   def call
-    MakeupSales::Scraper
-    start
-    menu 
-  end
-
-  def start 
     puts "" 
     puts "Hello Beautiful! Welcome to the Makeup Sales of Ulta Beauty:"
+    MakeupSales::Scraper
+    main_menu 
+  end
+  
+  def main_menu
     puts ""
     puts "What page number would you like to see first?"
-  end 
-  
-  def menu
     puts "1 - 7 or press q to quit" 
     user_input = gets.strip.to_i 
     case user_input 
@@ -23,7 +19,7 @@ class MakeupSales::CLI
      good_bye  
     else
       puts "Invalid Choice"
-      menu
+      main_menu
     end
   end
   
@@ -50,7 +46,7 @@ class MakeupSales::CLI
       good_bye 
     else 
       puts "invalid entry" 
-      main 
+      main_menu 
     end 
   end 
   
@@ -65,18 +61,10 @@ class MakeupSales::CLI
   
   def next_product 
     puts "Would you like to see another product? Y or N?" 
-    if 'y' 
-      puts menu 
-    if 'n'   
-      puts good_bye 
-    else 
-      puts "Invalid Entry."
-    end 
   end 
   
   def good_bye 
     puts "Thank you for shopping with us! See you soon!" 
-  end 
-end  
+  end
  
 end   
