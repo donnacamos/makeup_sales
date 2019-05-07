@@ -60,7 +60,16 @@ class MakeupSales::CLI
   end 
   
   def next_product 
-    puts "Would you like to see another product? Y or N?" 
+    puts "Would you like to see another product? Y or N?"
+    answer = gets.strip.downcase 
+    if answer == 'y' 
+      puts main_menu 
+    elsif answer == 'n' 
+      puts good_bye 
+    else 
+      puts "invalid entry" 
+      next_product 
+    end 
   end 
   
   def good_bye 
