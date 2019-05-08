@@ -8,22 +8,24 @@ class MakeupSales::CLI
   end
   
   def main_menu
-    puts ""
-    puts "What page number would you like to see first?"
-    puts "1 - 7 or press q to quit" 
-    user_input = gets.strip.to_i 
-    case user_input 
-    when 1..7
-     list_product  
-    when 'q' 
-     good_bye  
+    puts "Which product would you like to see first(1-8)?"
+    puts "Or type 'list' to see a list of the products." 
+    puts "Or type 'quit' to leave." 
+    input = gets.strip.downcase  
+    case 
+    when 1..8 
+      product_details 
+    when 'list' 
+      product_list
+    when 'quit'  
+      good_bye  
     else
-      puts "Invalid Choice"
+      puts "Invalid Entry" 
       main_menu
     end
   end
   
-  def list_product  
+  def product_list   
     puts "product 1" 
     puts "product 2"
     puts "product 3" 
@@ -38,11 +40,11 @@ class MakeupSales::CLI
   end 
   
   def select_product
-    selection = gets.strip.to_i 
-    case selection
-    when 1..8
-    product_details
-    when 'q' 
+    input = gets.strip.downcase  
+    case input 
+    when '1'..'8'  
+    product_details(input.to_i)
+    when 'quit' 
       good_bye 
     else 
       puts "invalid entry" 
