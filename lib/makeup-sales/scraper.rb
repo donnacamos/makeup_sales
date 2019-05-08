@@ -16,11 +16,11 @@ class Scraper
       product_object.sale_price = product.css("span.pro-new-price").text
       product_object.previous_price = product.css("span.pro-old-price").text
       product_object.description = product.css("div.ProductDetail_productContent collapse in").text
-      product_object.url = "https://www.ulta.com"
+      product_object.url = "https://www.ulta.com" 
     end 
   end 
   
-  def scrape_product_details(product_object) 
+  def self.scrape_product_details(product_object) 
     website = Nokogiri::HTML(open(product_object.url)) 
   end 
    

@@ -13,7 +13,7 @@ class MakeupSales::CLI
     input = gets.strip.downcase  
     case 
     when 1..8 
-      product_details 
+      product_details(input.to_i)  
     when 'list' 
       product_list
     when 'quit'  
