@@ -3,7 +3,6 @@ class MakeupSales::CLI
   def call
     puts "" 
     puts "Hello Beautiful! Welcome to the Makeup Sales of Ulta Beauty:"
-    MakeupSales::Scraper
     main_menu 
   end
   
@@ -26,16 +25,24 @@ class MakeupSales::CLI
   end
   
   def product_list   
-    puts "product 1" 
-    puts "product 2"
-    puts "product 3" 
-    puts "product 4"
-    puts "product 5" 
-    puts "product 6"
-    puts "product 7" 
-    puts "product 8"
-    puts "" 
-    puts "Which product would you like more details on (1-8)?" 
+    puts "Here are the beauty products on sale today:\n"
+    Product.product_list.each.with_index(1) do |product, idx|
+      puts "#{idx}.#{product.name}---#{product.brand}"
+      puts "-------#{product.sale_price}---#{product.previous_price}"
+      puts "-------#{product.description}-------------"
+    end
+    puts "\nSelect a number for the product you want more info about."
+    input = gets.strip.to_i - 1  #index value 0-18
+    max_input = Product.product_details.size - 1
+    #check for bad input
+    until input.between?(0,max_input)
+      puts "Sorry, please enter a number between 1 and #{max_input + 1}"
+        input = gets.strip.to_i - 1
+    end
+    puts "valid input"
+
+    product_object =  Product.product_details[input] 
+    show_product_details(product_object)
     select_product 
   end 
   
@@ -52,12 +59,8 @@ class MakeupSales::CLI
     end 
   end 
   
-  def product_details  
-    puts "product name" 
-    puts "product brand" 
-    puts "original price" 
-    puts "sale price" 
-    puts "product description" 
+  def product_details(product_object)   
+    Scraper.scrape_product_details(product_object) 
     next_product 
   end 
   
@@ -67,14 +70,14 @@ class MakeupSales::CLI
     if answer == 'y' 
       puts main_menu 
     elsif answer == 'n' 
-      puts good_bye 
+      puts goodbye 
     else 
       puts "invalid entry" 
       next_product 
     end 
   end 
   
-  def good_bye 
+  def goodbye 
     puts "Thank you for shopping with us! See you soon!" 
   end
  
