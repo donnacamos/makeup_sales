@@ -13,8 +13,8 @@ class MakeupSales::CLI
     case 
     when 'list' 
       product_list
-    when 'quit'  
-      good_bye  
+    when 'quit' || 'exit' 
+      goodbye  
     else
       puts "Invalid Entry" 
       main_menu
@@ -48,8 +48,8 @@ class MakeupSales::CLI
     case input 
     when '1'..'8'  
     product_details(input.to_i)
-    when 'quit' 
-      good_bye 
+    when 'quit' || 'exit'
+      goodbye 
     else 
       puts "invalid entry" 
       main_menu 
