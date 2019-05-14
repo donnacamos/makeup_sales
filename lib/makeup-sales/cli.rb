@@ -7,13 +7,10 @@ class MakeupSales::CLI
   end
   
   def main_menu
-    puts "Which product would you like to see first(1-8)?"
-    puts "Or type 'list' to see a list of the products." 
+    puts "Type 'list' to see a list of the products." 
     puts "Or type 'quit' to leave." 
     input = gets.strip.downcase  
     case 
-    when 1..8 
-      product_details(input.to_i)  
     when 'list' 
       product_list
     when 'quit'  
@@ -26,24 +23,24 @@ class MakeupSales::CLI
   
   def product_list   
     puts "Here are the beauty products on sale today:\n"
-    Product.product_list.each.with_index(1) do |product, idx|
+    MakeupSales::Product.product_list.each.with_index(1) do |product, idx|
       puts "#{idx}.#{product.name}---#{product.brand}"
       puts "-------#{product.sale_price}---#{product.previous_price}"
       puts "-------#{product.description}-------------"
-    end
-    puts "\nSelect a number for the product you want more info about."
-    input = gets.strip.to_i - 1  #index value 0-18
-    max_input = Product.product_details.size - 1
+     end
+     puts "\nSelect a number for the product you want more info about."
+     input = gets.strip.to_i - 1  #index value 0-18
+     max_input = Product.product_details.size - 1
     #check for bad input
-    until input.between?(0,max_input)
-      puts "Sorry, please enter a number between 1 and #{max_input + 1}"
-        input = gets.strip.to_i - 1
-    end
-    puts "valid input"
+     until input.between?(0,max_input)
+     puts "Sorry, please enter a number between 1 and #{max_input + 1}"
+     input = gets.strip.to_i - 1
+     end
+     puts "valid input"
 
-    product_object =  Product.product_details[input] 
-    show_product_details(product_object)
-    select_product 
+     product_object =  Product.product_details[input] 
+     show_product_details(product_object)
+     select_product 
   end 
   
   def select_product
