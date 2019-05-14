@@ -28,25 +28,25 @@ class MakeupSales::CLI
       puts "-------#{product.sale_price}---#{product.previous_price}"
       puts "-------#{product.description}-------------"
      end
-     puts "\nSelect a number for the product you want more info about."
-     input = gets.strip.to_i - 1  #index value 0-18
-     max_input = Product.product_details.size - 1
+    # puts "\nSelect a number for the product you want more info about."
+    # input = gets.strip.to_i - 1  #index value 0-18
+    # max_input = Product.product_details.size - 1
     #check for bad input
-     until input.between?(0,max_input)
-     puts "Sorry, please enter a number between 1 and #{max_input + 1}"
-     input = gets.strip.to_i - 1
-     end
-     puts "valid input"
+    # until input.between?(0,max_input)
+    # puts "Sorry, please enter a number between 1 and #{max_input + 1}"
+    # input = gets.strip.to_i - 1
+    # end
+    # puts "valid input"
 
-     product_object =  Product.product_details[input] 
-     show_product_details(product_object)
-     select_product 
+   #  product_object =  Product.product_details[input] 
+  #   show_product_details(product_object)
+   #  select_product 
   end 
   
   def select_product
     input = gets.strip.downcase  
     case input 
-    when '1'..'8'  
+    when '1'..'18'  
     product_details(input.to_i)
     when 'quit' || 'exit'
       goodbye 
@@ -57,7 +57,7 @@ class MakeupSales::CLI
   end 
   
   def product_details(product_object)   
-    Scraper.scrape_product_details(product_object) 
+    MakeupSales::Scraper.scrape_product_details(product_object) 
     next_product 
   end 
   

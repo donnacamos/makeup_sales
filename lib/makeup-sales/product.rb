@@ -14,10 +14,12 @@ class MakeupSales::Product
     @@all 
   end 
   
-  def self.product_list 
+  def self.product_list
+    @@all.select{ |product| product.title = ""} 
   end 
    
-  def self.product_details 
+  def self.product_details
+    @@all.select{ |product| product.description = ""} 
   end 
   
 end 

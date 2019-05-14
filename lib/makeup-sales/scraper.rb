@@ -17,7 +17,7 @@ class Scraper
       product_object.sale_price = product.css("span.pro-new-price").text
       product_object.previous_price = product.css("span.pro-old-price").text
       product_object.description = product.css("div.ProductDetail_productContent collapse in").text
-      product_object.url = "https://www.ulta.com/one-step-volumizer-hair-dryer?productId=xlsImpprod14811059" 
+      product_object.url = "https://www.ulta.com" + product.css("a")[0]('href')
     end 
   end 
   
