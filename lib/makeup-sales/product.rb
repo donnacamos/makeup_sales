@@ -15,7 +15,7 @@ class MakeupSales::Product
   end 
   
   def self.product_list
-    @@all.select{ |product| product.title = ""} 
+    @@all.select{ |product| product_object.title = ""} 
   end 
    
   def self.product_details
