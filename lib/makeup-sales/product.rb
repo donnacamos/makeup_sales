@@ -1,6 +1,6 @@
 class MakeupSales::Product
   
-  attr_accessor :title, :url, :brand, :sale_price, :previous_price, :description  
+  attr_accessor :title, :brand, :sale_price, :previous_price, :description  
   
   @@all = [] 
   

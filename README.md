@@ -1,8 +1,8 @@
-# Makeup::Sales
+# Makeup Sales
 
-Hello Beautiful!
+Welcome to the Makeup Sales CLI App! 
 
-This app will let you see in real time the sales of the day going on at Ulta Beauty.  
+Follow the installation instructions below to see the sales going on at Ulta Beauty's website.  
 
 ## Installation
 
@@ -10,6 +10,11 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'makeup-sales'
+```
+Install nokogiri 
+
+```ruby
+gem install nokogiri
 ```
 
 And then execute:
