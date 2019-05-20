@@ -32,11 +32,11 @@ class MakeupSales::CLI
      input = gets.strip.to_i - 1  #index value 0-18
      max_input = MakeupSales::Product.all.size - 1
     #check for bad input
-  #   until input.between?(0,max_input)
-  #   puts "Sorry, please enter a number between 1 and #{max_input + 1}"
-  #   input = gets.strip.to_i - 1
-  #   end
-  #   puts "valid input"
+     until input.between?(0,max_input)
+       puts "Sorry, please enter a number between 1 and #{max_input + 1}"
+       input = gets.strip.to_i - 1
+     end
+     puts "valid input"
 
   #   product_object =  Product.product_details[input] 
   #   show_product_details(product_object)
