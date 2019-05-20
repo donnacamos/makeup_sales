@@ -8,17 +8,18 @@ class MakeupSales::Scraper
      products = section.css("li") 
     
    products.css("div.productQvContainer").each do |product| 
-      title = product.css("h4.prod-title").text.strip
-      product_object = MakeupSales::Product.new(title)
-      product_object.brand = product.css("div.prod-title").text.strip
+      brand = product.css("h4.prod-title").text.strip
+      product_object = MakeupSales::Product.new(brand)
+      product_object.description = product.css("p.prod-desc").text.strip
       product_object.sale_price = product.css("span.pro-new-price").text.strip
       product_object.previous_price = product.css("span.pro-old-price").text.strip
-      product_object.description = product.css("div.ProductDetail_productContent collapse in").text.strip 
+      product_object.url = product.css("a").attr("href").value 
     end 
   end 
   
   def self.scrape_product_details(product_object) 
-    website = Nokogiri::HTML(open(product_object.url)) 
+    website = Nokogiri::HTML(open(product_object.url))
+   # product_object.more_info = website.css("div.ProductDetail_productContent.collapse.in").text.strip
   end 
    
 end 

@@ -24,9 +24,8 @@ class MakeupSales::CLI
   def product_list   
     puts "Here are the beauty products on sale today:\n"
     MakeupSales::Product.all.each.with_index(1) do |product, idx|
-      puts "#{idx}.#{product.title}---#{product.brand}" 
+      puts "#{idx}.#{product.brand}---#{product.description}" 
       puts "-------#{product.sale_price}---#{product.previous_price}"
-      puts "-------#{product.description}-------------"
      end
      puts "\nSelect a number for the product you want more info about."
      input = gets.strip.to_i - 1  #index value 0-18
@@ -38,7 +37,9 @@ class MakeupSales::CLI
      end
      puts "valid input"
 
-  #   product_object =  Product.product_details[input] 
+     product = MakeupSales::Product.all[input]
+     binding.pry 
+     puts product.title 
   #   show_product_details(product_object)
   #   select_product 
   end 
