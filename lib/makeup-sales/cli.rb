@@ -27,7 +27,8 @@ class MakeupSales::CLI
       puts "-------------------------------------------------"
       puts "#{idx}.#{product.brand}" 
       puts "#{product.description}" 
-      puts "#{product.sale_price} - #{product.previous_price}"
+      puts "Sale Price:#{product.sale_price}" 
+      puts "Original Price:#{product.previous_price}"
       puts "-------------------------------------------------"
      end
      puts "\nSelect a number for the product you want more info about."
