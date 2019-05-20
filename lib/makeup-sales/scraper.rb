@@ -19,7 +19,7 @@ class MakeupSales::Scraper
   
   def self.scrape_product_details(product_object) 
     website = Nokogiri::HTML(open(product_object.url))
-   # product_object.more_info = website.css("div.ProductDetail_productContent.collapse.in").text.strip
+    product_object.more_info = website.css("div.ProductDetail_productContent.collapse.in").text.strip
   end 
    
 end 

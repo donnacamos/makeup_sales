@@ -24,8 +24,11 @@ class MakeupSales::CLI
   def product_list   
     puts "Here are the beauty products on sale today:\n"
     MakeupSales::Product.all.each.with_index(1) do |product, idx|
-      puts "#{idx}.#{product.brand}---#{product.description}" 
-      puts "-------#{product.sale_price}---#{product.previous_price}"
+      puts "-------------------------------------------------"
+      puts "#{idx}.#{product.brand}" 
+      puts "#{product.description}" 
+      puts "#{product.sale_price} - #{product.previous_price}"
+      puts "-------------------------------------------------"
      end
      puts "\nSelect a number for the product you want more info about."
      input = gets.strip.to_i - 1  #index value 0-18
@@ -38,16 +41,15 @@ class MakeupSales::CLI
      puts "valid input"
 
      product = MakeupSales::Product.all[input]
-     binding.pry 
-     puts product.title 
+     puts product.brand  
   #   show_product_details(product_object)
-  #   select_product 
+     select_product 
   end 
   
   def select_product
     input = gets.strip.downcase  
     case input 
-    when '1'..'18'  
+    when '1'..'98'  
     product_details(input.to_i)
     when 'quit'
       goodbye 
