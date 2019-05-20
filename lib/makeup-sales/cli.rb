@@ -1,7 +1,7 @@
 class MakeupSales::CLI
 
   def call
-    MakeupSales::Scraper.new 
+    MakeupSales::Scraper.scrape_product  
     puts "" 
     puts "Welcome to the Makeup Sales of Ulta Beauty:"
     puts "" 

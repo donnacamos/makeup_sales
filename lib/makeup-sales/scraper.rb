@@ -3,7 +3,7 @@ class MakeupSales::Scraper
   def self.scrape_product 
     
     website = Nokogiri::HTML(open("https://www.ulta.com/promotion/sale"))
-    binding.pry 
+   # binding.pry 
      section = website.css("ul#foo16")
      products = section.css("li") 
     
