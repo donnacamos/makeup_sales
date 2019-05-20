@@ -8,8 +8,8 @@ class MakeupSales::Scraper
      products = section.css("li") 
     
    products.css("div.productQvContainer").each do |product| 
-     product_object = Product.new(title) 
-      product_object.title = product.css("h4.prod-title").text.strip
+      title = product.css("h4.prod-title").text.strip
+      product_object = MakeupSales::Product.new(title)
       product_object.brand = product.css("div.prod-title").text.strip
       product_object.sale_price = product.css("span.pro-new-price").text.strip
       product_object.previous_price = product.css("span.pro-old-price").text.strip

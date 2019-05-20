@@ -2,9 +2,7 @@ class MakeupSales::CLI
 
   def call
     MakeupSales::Scraper.scrape_product  
-    puts "" 
-    puts "Welcome to the Makeup Sales of Ulta Beauty:"
-    puts "" 
+    puts "\nWelcome to the Makeup Sales of Ulta Beauty:\n"
     main_menu 
   end
   
@@ -30,9 +28,9 @@ class MakeupSales::CLI
       puts "-------#{product.sale_price}---#{product.previous_price}"
       puts "-------#{product.description}-------------"
      end
-   #  puts "\nSelect a number for the product you want more info about."
-  #   input = gets.strip.to_i - 1  #index value 0-18
-  #   max_input = Product.product_details.size - 1
+     puts "\nSelect a number for the product you want more info about."
+     input = gets.strip.to_i - 1  #index value 0-18
+     max_input = MakeupSales::Product.all.size - 1
     #check for bad input
   #   until input.between?(0,max_input)
   #   puts "Sorry, please enter a number between 1 and #{max_input + 1}"
