@@ -31,9 +31,9 @@ class MakeupSales::CLI
       puts "Original Price:#{product.previous_price}"
       puts "-------------------------------------------------"
      end
-     puts "\nSelect a number for the product you want more info about."
-     input = gets.strip.to_i - 1  #index value 0-18
-     max_input = MakeupSales::Product.all.size - 1
+      puts "\nSelect a number for the product you want more info about."
+      input = gets.strip.to_i - 1  #index value 0-18
+      max_input = MakeupSales::Product.all.size - 1
     #check for bad input
      until input.between?(0,max_input)
        puts "Sorry, please enter a number between 1 and #{max_input + 1}"
@@ -41,28 +41,32 @@ class MakeupSales::CLI
      end
       puts "valid input"
      
-     product = MakeupSales::Product.all[input]
-     show_product_details(product) 
-    # select_product 
+      product_object = MakeupSales::Product.scrape_product_details[input] 
+      show_product_details(product_object)
+      select_product 
   end 
   
-  def show_product_details(product_object.more_info) 
-    MakeupSales::Scraper.scrape_product_details(product_object.more_info)
+  def show_product_details(product_object)
+      MakeupSales::Scraper.scrape_product_details(product_object) 
   end 
   
- # def select_product
-  #  input = gets.strip.downcase  
-  #  case input 
-  #  when '1'..'98'  
-  #  show_product_details(product_object)
-  #   next_product
-  #  when 'quit'
-  #    goodbye 
-  #  else 
-  #    puts "invalid entry" 
-  #    main_menu 
-  #  end 
-#  end 
+  def select_product
+    input = gets.strip.downcase  
+    case input 
+    when '1'..'18'  
+    product_details(input.to_i)
+    when 'quit','exit'
+      goodbye 
+    else 
+      puts "invalid entry" 
+      main_menu 
+    end 
+  end 
+  
+  def product_details(product_object)   
+    MakeupSales::Scraper.scrape_product_details(product_object) 
+    next_product 
+  end 
   
   
   def next_product 
