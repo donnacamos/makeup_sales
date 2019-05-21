@@ -39,28 +39,30 @@ class MakeupSales::CLI
        puts "Sorry, please enter a number between 1 and #{max_input + 1}"
        input = gets.strip.to_i - 1
      end
-     # puts "valid input"
-     binding.pry
+      puts "valid input"
+     
      product = MakeupSales::Product.all[input]
-     puts product.brand 
-     puts product.url 
-  #   show_product_details(product_object)
-     select_product 
+     show_product_details(product) 
+    # select_product 
   end 
   
-  def select_product
-    input = gets.strip.downcase  
-    case input 
-    when '1'..'98'  
-    MakeupSales::Scraper.scrape_product_details(product_object)
-    next_product
-    when 'quit'
-      goodbye 
-    else 
-      puts "invalid entry" 
-      main_menu 
-    end 
+  def show_product_details(product_object.more_info) 
+    MakeupSales::Scraper.scrape_product_details(product_object.more_info)
   end 
+  
+ # def select_product
+  #  input = gets.strip.downcase  
+  #  case input 
+  #  when '1'..'98'  
+  #  show_product_details(product_object)
+  #   next_product
+  #  when 'quit'
+  #    goodbye 
+  #  else 
+  #    puts "invalid entry" 
+  #    main_menu 
+  #  end 
+#  end 
   
   
   def next_product 
