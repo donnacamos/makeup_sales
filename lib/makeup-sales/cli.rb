@@ -25,7 +25,7 @@ class MakeupSales::CLI
     puts "Here are the beauty products on sale today:\n"
     MakeupSales::Product.all.each.with_index(1) do |product, idx|
       puts "-------------------------------------------------"
-      puts "#{idx}.#{product.brand}" 
+      puts "#{idx}. #{product.brand}" 
       puts "#{product.description}" 
       puts "Sale Price:#{product.sale_price}" 
       puts "Original Price:#{product.previous_price}"
@@ -39,10 +39,11 @@ class MakeupSales::CLI
        puts "Sorry, please enter a number between 1 and #{max_input + 1}"
        input = gets.strip.to_i - 1
      end
-     puts "valid input"
-
+     # puts "valid input"
+     binding.pry
      product = MakeupSales::Product.all[input]
-     puts product.brand  
+     puts product.brand 
+     puts product.url 
   #   show_product_details(product_object)
      select_product 
   end 
@@ -51,7 +52,8 @@ class MakeupSales::CLI
     input = gets.strip.downcase  
     case input 
     when '1'..'98'  
-    product_details(input.to_i)
+    MakeupSales::Scraper.scrape_product_details(product_object)
+    next_product
     when 'quit'
       goodbye 
     else 
@@ -60,10 +62,6 @@ class MakeupSales::CLI
     end 
   end 
   
-  def product_details(product_object)   
-    MakeupSales::Scraper.scrape_product_details(product_object) 
-    next_product 
-  end 
   
   def next_product 
     puts "Would you like to see another product? Y or N?"

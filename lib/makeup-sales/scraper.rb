@@ -13,7 +13,7 @@ class MakeupSales::Scraper
       product_object.description = product.css("p.prod-desc").text.strip
       product_object.sale_price = product.css("span.pro-new-price").text.strip
       product_object.previous_price = product.css("span.pro-old-price").text.strip
-      product_object.url = product.css("a").attr("href").value 
+      product_object.url = "https://www.ulta.com/promotion/sale" + product.css("a").attr("href").value 
     end 
   end 
   
