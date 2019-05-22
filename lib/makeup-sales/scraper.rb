@@ -13,13 +13,14 @@ class MakeupSales::Scraper
       product_object.description = product.css("p.prod-desc").text.strip
       product_object.sale_price = product.css("span.pro-new-price").text.strip
       product_object.previous_price = product.css("span.pro-old-price").text.strip
-      product_object.url = "https://www.ulta.com/promotion/sale" + product.css("a").attr("href").value 
+      product_object.url = "https://www.ulta.com" + product.css("a").attr("href").value 
     end 
   end 
   
-  def self.scrape_product_details(product_object) 
+  def self.scrape_product_details(product_object)
     website = Nokogiri::HTML(open(product_object.url))
-    product_object.more_info = website.css("div.ProductDetail_productContent.collapse.in").text.strip
+   # binding.pry 
+    product_object.more_info = website.css(".collapse.in").text.strip
   end 
    
 end 
