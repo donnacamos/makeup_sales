@@ -39,42 +39,18 @@ class MakeupSales::CLI
        puts "Sorry, please enter a number between 1 and #{max_input + 1}"
        input = gets.strip.to_i - 1
      end
-      puts "valid input"
+     # puts "valid input"
       product_object = MakeupSales::Product.all[input]
       MakeupSales::Scraper.scrape_product_details(product_object)  
       puts product_object.more_info 
-  #    show_product_details(product_object)
-  #    select_product 
+      next_product 
   end 
   
- # def show_product_details(product_object)
-#      MakeupSales::Scraper.scrape_product_details(product_object) 
-#  end 
-  
- # def select_product
-#    input = gets.strip.downcase  
-#    case input 
-#    when '1'..'18'  
-#    product_details(input.to_i)
-#    when 'quit','exit'
-#      goodbye 
-#    else 
-#      puts "invalid entry" 
-#      main_menu 
- #   end 
-#  end 
-  
-#  def product_details(product_object)   
-#    MakeupSales::Scraper.scrape_product_details(product_object) 
-#    next_product 
-#  end 
-  
-  
   def next_product 
-    puts "Would you like to see another product? Y or N?"
+    puts "\nWould you like to see another product? Y or N?"
     answer = gets.strip.downcase 
     if answer == 'y' 
-      puts main_menu 
+      puts product_list  
     elsif answer == 'n' 
       puts goodbye 
     else 
