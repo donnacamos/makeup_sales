@@ -9,7 +9,7 @@ Follow the installation instructions below to see the sales going on at Ulta Bea
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'makeup-sales'
+gem 'makeup-sales-cli-gem'
 ```
 Install nokogiri 
 
@@ -29,7 +29,7 @@ Or install it yourself as:
 
 Type the below and follow the screen prompts
 
-    $ makeup-sales
+    $ ./bin/makeup-sales
 
 ## Development
 
