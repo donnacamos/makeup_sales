@@ -1,6 +1,6 @@
 # Makeup Sales
 
-Welcome to the Makeup Sales CLI App! 
+Welcome to the Makeup Sales CLI Gem! 
 
 Follow the installation instructions below to see the sales going on at Ulta Beauty's website.  
 
@@ -23,7 +23,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install makeup-sales
+    $ gem install makeup-sales-cli-gem 
 
 ## Usage
 
