@@ -60,7 +60,7 @@ class MakeupSales::CLI
   end 
   
   def goodbye 
-    puts "Thank you for shopping with us! See you soon!" 
+    puts "\nThank you for shopping with us! See you soon!\n" 
   end
  
 end   

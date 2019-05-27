@@ -1,7 +1,7 @@
 
 require 'nokogiri'
 require 'open-uri'
-require 'pry' 
+# require 'pry' 
 
 require_relative '../lib/makeup-sales/scraper'
 require_relative '../lib/makeup-sales/product'
