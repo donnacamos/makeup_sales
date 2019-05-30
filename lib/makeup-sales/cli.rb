@@ -41,15 +41,14 @@ class MakeupSales::CLI
      end
      # puts "valid input"
       product_object = MakeupSales::Product.all[input]
-      MakeupSales::Scraper.scrape_product_details(product_object)  
-      puts product_object.more_info
-      prevent_product
+     if MakeupSales::Scraper.scrape_product_details(product_object) == true  
+        puts product_list 
+      else  
+        puts product_object.more_info
+      end 
       next_product 
   end 
   
-  def prevent_product
-    puts "\nYou've already viewed this product."
-  end 
   
   def next_product 
     puts "\nWould you like to see another product? Y or N?"
