@@ -1,3 +1,4 @@
+require 'pry' 
 class MakeupSales::Scraper 
   
   def self.scrape_product 
@@ -19,8 +20,8 @@ class MakeupSales::Scraper
   
   def self.scrape_product_details(product_object)
     website = Nokogiri::HTML(open(product_object.url))
-   # binding.pry 
-    product_object.more_info = website.css("#product-details"[0]).text.strip
+    #binding.pry 
+    product_object.more_info =  website.css("#productDetails > div")[0].text.strip
   end 
    
 end 
