@@ -41,11 +41,10 @@ class MakeupSales::CLI
      end
      # puts "valid input"
       product_object = MakeupSales::Product.all[input]
-     if MakeupSales::Scraper.scrape_product_details(product_object) == true  
-        puts product_list 
-      else  
-        puts product_object.more_info
+     if product_object.more_info == nil   
+        MakeupSales::Scraper.scrape_product_details(product_object)
       end 
+      puts product_object.more_info
       next_product 
   end 
   
